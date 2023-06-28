@@ -1,8 +1,8 @@
 const userService = require('../service/userService');
 
-const userLogin = (req, res, next) => {
+const userRegister = async (req, res, next) => {
   try {
-    const result = userService.userLogin()
+    const result = await userService.userRegister(req.body)
     return res.status(200).json(result) 
   } catch (error) {
     next(error)
@@ -10,5 +10,5 @@ const userLogin = (req, res, next) => {
 }
 
 module.exports = {
-  userLogin,
+  userRegister,
 }
